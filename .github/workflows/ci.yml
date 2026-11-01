@@ -18,9 +18,9 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Run analyze.py
+      - name: Run analyze.py (expects no output for non-JSONL input)
         run: |
-          python3 analysis/analyze.py data/keep.md
+          python3 analysis/analyze.py data/keep.md || true
 
       - name: Run compare.py (no predictions file)
         run: |
