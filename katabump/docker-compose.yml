@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  blackbird:
+    build: .
+    container_name: blackbird-databridge
+    restart: always
+    environment:
+      - DATA_FILE=data/market_data.jsonl
+      - INTERVAL_SECONDS=3600
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+      - ./predictions:/app/predictions
+    network_mode: "host"
